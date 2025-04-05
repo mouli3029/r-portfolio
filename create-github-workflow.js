@@ -1,4 +1,25 @@
-name: Deploy to GitHub Pages
+// Script to generate the GitHub workflow file
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Get the current file's directory
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const workflowsDir = path.join(__dirname, '.github', 'workflows');
+
+// Create directories if they don't exist
+if (!fs.existsSync(path.join(__dirname, '.github'))) {
+  fs.mkdirSync(path.join(__dirname, '.github'));
+}
+
+if (!fs.existsSync(workflowsDir)) {
+  fs.mkdirSync(workflowsDir);
+}
+
+// GitHub workflow file content
+const workflowContent = `name: Deploy to GitHub Pages
 
 on:
   push:
@@ -44,10 +65,17 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: \${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+`;
+
+// Write the workflow file
+const deployFilePath = path.join(workflowsDir, 'deploy.yml');
+fs.writeFileSync(deployFilePath, workflowContent);
+
+console.log(`✅ GitHub workflow file created at: ${deployFilePath}`);

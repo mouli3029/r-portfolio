@@ -1,4 +1,4 @@
-import { Switch, Route, Router as WouterRouter, useLocationProperty } from "wouter";
+import { Switch, Route, Router as WouterRouter } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -45,7 +45,7 @@ const useHashLocation = () => {
 // Our custom Router component
 function Router() {
   return (
-    <WouterRouter hook={isGitHubPages ? useHashLocation : undefined} base={BASE_URL}>
+    <WouterRouter base={BASE_URL}>
       <Switch>
         <Route path="/" component={Home} />
         {/* Add a catch-all route at the end */}

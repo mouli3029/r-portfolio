@@ -1,6 +1,11 @@
 // This script helps ensure GitHub Pages deployment works correctly
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Get the current file's directory
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Check if dist directory exists
 if (!fs.existsSync('./dist')) {
