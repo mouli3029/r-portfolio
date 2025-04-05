@@ -7,7 +7,8 @@ import Home from "@/pages/Home";
 import { MobileMenuProvider } from "./contexts/MobileMenuContext";
 
 // Get base URL from environment variable or default to '/'
-const BASE_URL = import.meta.env.VITE_BASE_URL || '/';
+// In development, we always use '/'
+const BASE_URL = import.meta.env.DEV ? '/' : (import.meta.env.VITE_BASE_URL || '/');
 
 // Our custom Router component
 function Router() {
@@ -16,7 +17,8 @@ function Router() {
     <WouterRouter base={BASE_URL}>
       <Switch>
         <Route path="/" component={Home} />
-        <Route component={NotFound} />
+        {/* Add a catch-all route at the end */}
+        <Route path="/:rest*" component={NotFound} />
       </Switch>
     </WouterRouter>
   );
