@@ -65,7 +65,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 bg-gray-900 text-white">
+    <section id="contact" className="py-16 bg-gray-900 text-white transition-colors duration-200">
       <div className="container mx-auto px-4">
         <h2 className="section-title text-white">Contact Me</h2>
         
@@ -121,12 +121,12 @@ export default function Contact() {
                 <div>
                   <h4 className="font-semibold text-lg">LinkedIn</h4>
                   <a 
-                    href="https://linkedin.com/in/venkata-mouli/" 
+                    href="https://linkedin.com/in/venkatamouli" 
                     target="_blank" 
                     rel="noreferrer" 
                     className="text-blue-300 hover:underline"
                   >
-                    linkedin.com/in/venkata-mouli/
+                    linkedin.com/in/venkatamouli
                   </a>
                 </div>
               </div>
@@ -139,11 +139,11 @@ export default function Contact() {
           >
             <form 
               onSubmit={handleSubmit} 
-              className="bg-white text-gray-800 rounded-lg p-6 shadow-lg"
+              className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg p-6 shadow-lg"
             >
               <div className="space-y-4">
                 <div>
-                  <Label htmlFor="name">Name</Label>
+                  <Label htmlFor="name" className="dark:text-gray-200">Name</Label>
                   <Input 
                     type="text" 
                     id="name" 
@@ -151,11 +151,12 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
+                    className="dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
                   />
                 </div>
                 
                 <div>
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="email" className="dark:text-gray-200">Email</Label>
                   <Input 
                     type="email" 
                     id="email" 
@@ -163,11 +164,12 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    className="dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
                   />
                 </div>
                 
                 <div>
-                  <Label htmlFor="subject">Subject</Label>
+                  <Label htmlFor="subject" className="dark:text-gray-200">Subject</Label>
                   <Input 
                     type="text" 
                     id="subject" 
@@ -175,16 +177,17 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
+                    className="dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
                   />
                 </div>
                 
                 <div>
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message" className="dark:text-gray-200">Message</Label>
                   <Textarea 
                     id="message" 
                     name="message"
                     rows={4} 
-                    className="resize-none"
+                    className="resize-none dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
                     value={formData.message}
                     onChange={handleChange}
                     required

@@ -31,9 +31,9 @@ const certifications = [
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="py-16 bg-gray-50">
+    <section id="achievements" className="py-16 bg-gray-50 dark:bg-gray-800 transition-colors duration-200">
       <div className="container mx-auto px-4">
-        <h2 className="section-title">Achievements & Certifications</h2>
+        <h2 className="section-title dark:text-white">Achievements & Certifications</h2>
         
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
@@ -41,20 +41,20 @@ export default function Achievements() {
         >
           {/* Achievements */}
           <motion.div 
-            className="bg-white p-6 rounded-lg shadow-md"
+            className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md"
             {...fadeInUp}
           >
             <div className="flex items-center mb-6">
-              <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-primary mr-4">
+              <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-primary mr-4">
                 <Trophy />
               </div>
-              <h3 className="text-2xl font-bold">Achievements</h3>
+              <h3 className="text-2xl font-bold dark:text-white">Achievements</h3>
             </div>
             <ul className="space-y-4">
               {achievements.map((achievement, index) => (
                 <li key={index} className="flex items-start">
                   <div className="text-primary mr-3 mt-1">{achievement.icon}</div>
-                  <p>{achievement.text}</p>
+                  <p className="dark:text-gray-200">{achievement.text}</p>
                 </li>
               ))}
             </ul>
@@ -62,20 +62,20 @@ export default function Achievements() {
           
           {/* Certifications */}
           <motion.div 
-            className="bg-white p-6 rounded-lg shadow-md"
+            className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md"
             {...fadeInUp}
           >
             <div className="flex items-center mb-6">
-              <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-primary mr-4">
+              <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-primary mr-4">
                 <IdCard />
               </div>
-              <h3 className="text-2xl font-bold">Certifications</h3>
+              <h3 className="text-2xl font-bold dark:text-white">Certifications</h3>
             </div>
             <ul className="space-y-4">
               {certifications.map((certification, index) => (
                 <li key={index} className="flex items-start">
                   <div className="text-primary mr-3 mt-1">{certification.icon}</div>
-                  <p>{certification.text}</p>
+                  <p className="dark:text-gray-200">{certification.text}</p>
                 </li>
               ))}
             </ul>
