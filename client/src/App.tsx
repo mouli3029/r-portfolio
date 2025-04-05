@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, Router as WouterRouter } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -6,12 +6,19 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import { MobileMenuProvider } from "./contexts/MobileMenuContext";
 
+// Get base URL from environment variable or default to '/'
+const BASE_URL = import.meta.env.VITE_BASE_URL || '/';
+
+// Our custom Router component
 function Router() {
+  // Simple router with base path for GitHub Pages
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route component={NotFound} />
-    </Switch>
+    <WouterRouter base={BASE_URL}>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route component={NotFound} />
+      </Switch>
+    </WouterRouter>
   );
 }
 
