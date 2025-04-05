@@ -1,13 +1,13 @@
-IMPORTANT PATH INFORMATION FOR GITHUB PAGES DEPLOYMENT
+# GitHub Workflow Configuration Guide
 
-When setting up your GitHub Actions workflow for GitHub Pages deployment, make sure you specify the correct build output path:
+Follow these steps to set up GitHub Pages deployment for your portfolio:
 
-path: "./dist/public"
+1. Go to your GitHub repository: https://github.com/mouli3029/r-portfolio
+2. Click on "Add file" > "Create new file" 
+3. Enter the path: `.github/workflows/deploy.yml`
+4. Copy and paste the content below into the file:
 
-This is critical because the Vite build process in this project outputs files to the "dist/public" directory, not just "dist" as in a standard Vite project.
-
-FULL EXAMPLE WORKFLOW:
-
+```yaml
 name: Deploy to GitHub Pages
 
 on:
@@ -36,7 +36,7 @@ jobs:
         with:
           node-version: "18"
           cache: "npm"
-      
+          
       - name: Install dependencies
         run: npm ci
       
@@ -61,3 +61,12 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+```
+
+5. Click "Commit new file" at the bottom of the page
+6. The workflow will run automatically, or you can trigger it manually from the Actions tab
+
+## Important Notes:
+- This workflow is configured to deploy from the `./dist/public` directory
+- Make sure your Vite build outputs to this directory
+- You can check your GitHub Actions workflow status in the Actions tab of your repository
