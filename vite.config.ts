@@ -4,6 +4,7 @@ import themePlugin from "@replit/vite-plugin-shadcn-theme-json";
 import path from "path";
 
 export default defineConfig({
+  base: "r-portfolio",
   plugins: [
     react(),
     themePlugin(),
