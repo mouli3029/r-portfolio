@@ -1,3 +1,13 @@
+IMPORTANT PATH INFORMATION FOR GITHUB PAGES DEPLOYMENT
+
+When setting up your GitHub Actions workflow for GitHub Pages deployment, make sure you specify the correct build output path:
+
+path: "./dist/public"
+
+This is critical because the Vite build process in this project outputs files to the "dist/public" directory, not just "dist" as in a standard Vite project.
+
+FULL EXAMPLE WORKFLOW:
+
 name: Deploy to GitHub Pages
 
 on:
