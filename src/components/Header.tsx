@@ -16,7 +16,7 @@ export default function Header() {
   const { isOpen, toggle, close } = useMobileMenu();
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white dark:bg-gray-900 shadow-md z-50 transition-colors duration-200">
+    <header className="fixed top-0 left-0 right-0 bg-white/70 dark:bg-gray-900/60 backdrop-blur-md border-b border-gray-200/60 dark:border-gray-800/60 z-50 transition-colors duration-200">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="#home" className="text-2xl font-bold text-primary">
           Venkata Mouli
@@ -38,7 +38,7 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-gray-800 dark:text-gray-200 hover:text-primary dark:hover:text-primary transition-colors"
+                className="text-gray-800 dark:text-gray-200 hover:text-primary dark:hover:text-primary transition-colors relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-primary after:to-indigo-500 after:transition-all hover:after:w-full"
               >
                 {link.label}
               </a>
@@ -54,7 +54,7 @@ export default function Header() {
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.2 }}
-          className="md:hidden bg-white dark:bg-gray-800 py-4 px-4 shadow-lg"
+          className="md:hidden bg-white/80 dark:bg-gray-800/70 backdrop-blur-md py-4 px-4 shadow-lg border-t border-gray-200/60 dark:border-gray-700/40"
         >
           <div className="flex flex-col space-y-4">
             {navLinks.map((link) => (

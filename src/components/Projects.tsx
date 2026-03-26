@@ -6,7 +6,8 @@ const projects = [
   {
     title: "Food and Hospitality System",
     tech: "Django, HTML, CSS and SQLite",
-    description: "It is all about providing customers food outside home at their convenient location. It provides an interface where admin can add food, restaurants, hotels. User can search, order food and can book hotels.",
+    description:
+      "A Django based web application that provides an interface where admin can add food, restaurants, hotels. User can search, order food and can book hotels.",
     icon: <Utensils className="text-5xl" />,
     gradient: "from-blue-400 to-indigo-500",
     link: "https://food-hospitality.venkata-mouli.com",
@@ -14,8 +15,9 @@ const projects = [
   },
   {
     title: "Waste Management System",
-    tech: "Spring boot, MySql and JSP",
-    description: "A spring boot based web application in which a customer can book a slot for taking the household waste and waste collected is then transported to an appropriate recycled unit by an volunteer. Admin can add all recycled products back to the website so that customers can buy.",
+    tech: "Spring, MySql and JSP",
+    description:
+      "A Spring based web application in which a customer can book a slot for taking the household waste and waste collected is then transported to an appropriate recycled unit by an volunteer. Admin can add all recycled products back to the website so that customers can buy.",
     icon: <Recycle className="text-5xl" />,
     gradient: "from-green-400 to-teal-500",
     link: "https://waste-management.venkata-mouli.com",
@@ -23,8 +25,9 @@ const projects = [
   },
   {
     title: "Chat Application",
-    tech: "Socket.io, HTML, CSS, Express",
-    description: "It provides an interface where users can temporarily register and can chat with other online users, can also create groups. Uses socket.io for real time communication.",
+    tech: "Socket.io, HTML, CSS, Express, Node",
+    description:
+      "It provides an interface where users can temporarily register and can chat with other online users, can also create groups. Uses socket.io for real time communication.",
     icon: <MessageSquare className="text-5xl" />,
     gradient: "from-purple-400 to-pink-500",
     link: "https://chat-app.venkata-mouli.com",
@@ -45,7 +48,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div 
               key={index} 
-              className="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden"
+              className="surface-card surface-card-hover overflow-hidden"
               {...fadeInUp}
             >
               <div className={`h-48 bg-gradient-to-r ${project.gradient} flex items-center justify-center text-white`}>

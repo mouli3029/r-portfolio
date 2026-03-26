@@ -11,20 +11,14 @@ export default function About() {
           {...fadeInUp}
         >
           <p className="text-lg mb-6 dark:text-gray-300">
-            I am a passionate Software Engineer with experience in building modern web applications. 
-            Currently working at Genesys, I focus on developing robust, user-friendly interfaces and 
-            improving application performance.
+            I am a Software Engineer at Genesys with a strong focus on frontend engineering and building modern web applications.
+            I enjoy collaborating with product and design teams to deliver customer-centric features with strong performance and usability.
           </p>
           <p className="text-lg mb-6 dark:text-gray-300">
-            My journey in software development has equipped me with a strong foundation in both 
-            frontend and backend technologies. I enjoy solving complex problems and creating 
-            efficient solutions that deliver exceptional user experiences.
+            My experience spans the full SDLC, including requirement understanding, design discussions, implementation, testing, and production support.
+            I care about clean architecture, maintainable code, and shipping reliable UI at scale.
           </p>
-          <p className="text-lg dark:text-gray-300">
-            Outside of coding, I'm passionate about continuous learning and staying updated with 
-            the latest trends in technology. I have solved over 500 programming problems across 
-            various competitive platforms.
-          </p>
+          <p className="text-lg dark:text-gray-300">Outside of work, I stay active in coding and continuous learning. I have solved 500+ problems across platforms and enjoy sharpening fundamentals in data structures and algorithms. I also explore databases and backend systems, and enjoy experimenting with AI-powered tooling to build smarter applications.</p>
         </motion.div>
       </div>
     </section>

@@ -31,7 +31,7 @@ const certifications = [
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="py-16 bg-gray-50 dark:bg-gray-800 transition-colors duration-200">
+    <section id="achievements" className="py-16 section-wrap transition-colors duration-200">
       <div className="container mx-auto px-4">
         <h2 className="section-title dark:text-white">Achievements & Certifications</h2>
         
@@ -41,7 +41,7 @@ export default function Achievements() {
         >
           {/* Achievements */}
           <motion.div 
-            className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md"
+            className="surface-card surface-card-hover surface-border p-6"
             {...fadeInUp}
           >
             <div className="flex items-center mb-6">
@@ -62,7 +62,7 @@ export default function Achievements() {
           
           {/* Certifications */}
           <motion.div 
-            className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md"
+            className="surface-card surface-card-hover surface-border p-6"
             {...fadeInUp}
           >
             <div className="flex items-center mb-6">

@@ -3,7 +3,6 @@ import { fadeInUp, slideLeft, slideRight } from "@/utils/animations";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { FaLinkedin, FaPaperPlane } from "react-icons/fa";
 import { useState } from "react";
-import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -65,8 +64,9 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 bg-gray-900 text-white transition-colors duration-200">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-16 section-wrap transition-colors duration-200 bg-gray-900 text-white">
+      <div className="absolute inset-0 section-glow opacity-60" />
+      <div className="container mx-auto px-4 relative">
         <h2 className="section-title text-white">Contact Me</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -121,12 +121,12 @@ export default function Contact() {
                 <div>
                   <h4 className="font-semibold text-lg">LinkedIn</h4>
                   <a 
-                    href="https://linkedin.com/in/venkatamouli" 
+                    href="https://linkedin.com/in/venkata-mouli/" 
                     target="_blank" 
                     rel="noreferrer" 
                     className="text-blue-300 hover:underline"
                   >
-                    linkedin.com/in/venkatamouli
+                    linkedin.com/in/venkata-mouli/
                   </a>
                 </div>
               </div>
@@ -139,7 +139,7 @@ export default function Contact() {
           >
             <form 
               onSubmit={handleSubmit} 
-              className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg p-6 shadow-lg"
+              className="surface-card surface-border p-6 text-gray-800 dark:text-gray-200"
             >
               <div className="space-y-4">
                 <div>
@@ -151,7 +151,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                    className="dark:bg-gray-900/20 dark:border-gray-700/60 dark:text-gray-200"
                   />
                 </div>
                 
@@ -164,7 +164,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                    className="dark:bg-gray-900/20 dark:border-gray-700/60 dark:text-gray-200"
                   />
                 </div>
                 
@@ -177,7 +177,7 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                    className="dark:bg-gray-900/20 dark:border-gray-700/60 dark:text-gray-200"
                   />
                 </div>
                 
@@ -187,7 +187,7 @@ export default function Contact() {
                     id="message" 
                     name="message"
                     rows={4} 
-                    className="resize-none dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                    className="resize-none dark:bg-gray-900/20 dark:border-gray-700/60 dark:text-gray-200"
                     value={formData.message}
                     onChange={handleChange}
                     required

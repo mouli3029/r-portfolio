@@ -1,43 +1,53 @@
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/utils/animations";
-import { Code, Server, Monitor, Beaker, Drill, Plus } from "lucide-react";
+import { Server, Monitor, Beaker, Plus } from "lucide-react";
 
 const skillCategories = [
   {
-    title: "Languages",
-    icon: <Code className="text-primary" />,
-    skills: ["JavaScript", "TypeScript", "Java", "Python", "HTML/CSS", "SQL"]
-  },
-  {
-    title: "Frontend",
+    title: "Frontend Technologies",
     icon: <Monitor className="text-primary" />,
-    skills: ["Vue.js", "React.js", "KnockoutJS", "LESS", "Webpack"]
+    skills: [
+      "JavaScript (ES6+)",
+      "TypeScript",
+      "Vue.js",
+      "React.js",
+      "Knockout.js",
+      "HTML5",
+      "CSS3",
+      "Less",
+      "Responsive",
+      "Cross-Browser Compatibility"
+    ]
   },
   {
-    title: "Backend",
-    icon: <Server className="text-primary" />,
-    skills: ["Node.js", "Express", "Django", "Spring Boot", "MongoDB"]
-  },
-  {
-    title: "Testing",
+    title: "Build & Testing",
     icon: <Beaker className="text-primary" />,
-    skills: ["Jest", "Unit Testing"]
+    skills: ["Jest", "Storybook", "Webpack", "Vite", "Test-Driven Development (TDD)"]
   },
   {
-    title: "Tools & DevOps",
-    icon: <Drill className="text-primary" />,
-    skills: ["Git", "AWS"]
+    title: "Backend & Tools",
+    icon: <Server className="text-primary" />,
+    skills: ["Node.js", "Express", "Django", "Spring", "Git", "Docker", "Jenkins"]
   },
   {
     title: "Other Skills",
     icon: <Plus className="text-primary" />,
-    skills: ["Problem Solving", "Algorithms", "Data Structures"]
+    skills: [
+      "Chrome DevTools",
+      "Performance Debugging",
+      "REST APIs",
+      "Microfrontend Architecture",
+      "Architecture",
+      "Data Structures & Algorithms",
+      "GitHub",
+      "Jira"
+    ]
   }
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-16 bg-white dark:bg-gray-900 transition-colors duration-200">
+    <section id="skills" className="py-16 section-wrap transition-colors duration-200">
       <div className="container mx-auto px-4">
         <h2 className="section-title dark:text-white">Technical Skills</h2>
         
@@ -48,7 +58,7 @@ export default function Skills() {
           {skillCategories.map((category, index) => (
             <motion.div 
               key={index} 
-              className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md"
+              className="surface-card surface-card-hover surface-border p-6"
               {...fadeInUp}
             >
               <div className="flex items-center mb-4">
@@ -59,7 +69,7 @@ export default function Skills() {
               </div>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, idx) => (
-                  <span key={idx} className="bg-white dark:bg-gray-700 px-3 py-1 rounded-full text-sm border border-gray-200 dark:border-gray-600 dark:text-gray-200">
+                  <span key={idx} className="bg-white/70 dark:bg-gray-900/20 px-3 py-1 rounded-full text-sm border border-gray-200/70 dark:border-gray-700/60 dark:text-gray-200">
                     {skill}
                   </span>
                 ))}

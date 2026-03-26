@@ -11,7 +11,7 @@ export default function Footer() {
           
           <div className="flex space-x-6">
             <a 
-              href="https://linkedin.com/in/venkatamouli" 
+              href="https://linkedin.com/in/venkata-mouli/" 
               target="_blank" 
               rel="noreferrer" 
               className="text-gray-400 hover:text-primary transition-colors"
@@ -29,7 +29,7 @@ export default function Footer() {
               <FaGithub className="text-xl" />
             </a>
             <a 
-              href="https://leetcode.com/venkatamouli" 
+              href="https://leetcode.com/u/mouli_2303/" 
               target="_blank" 
               rel="noreferrer" 
               className="text-gray-400 hover:text-primary transition-colors"

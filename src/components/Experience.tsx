@@ -5,34 +5,74 @@ import { BriefcaseIcon } from "lucide-react";
 const experiences = [
   {
     title: "Software Engineer",
-    company: "Genesys",
-    period: "Feb 2024 - Present",
+    company: "Genesys (Chennai, India)",
+    period: "Aug 2022 - Present",
     responsibilities: [
-      "Enhanced application's date and time formatting for sub-regions by implementing a solution that utilizes browser locale and app language to determine the end locale, resolving customer's issue regarding dates."
+      "Develop and deliver high-quality frontend features across the Software Development Lifecycle (SDLC) including requirement understanding, design discussions, implementation, testing, and production support.",
+      "Built scalable and reusable UI components using Vue.js, JavaScript, HTML5 and CSS3 to enhance digital user experiences for enterprise customers.",
+      "Collaborate closely with product managers, designers and senior engineers to clarify requirements, propose technical solutions, and deliver customer-centric features.",
+      "Contribute actively to code reviews and design discussions, ensuring adherence to internal engineering standards, performance best practices and maintainable architecture.",
+      "Improved application performance by implementing API caching strategies and virtual rendering techniques, enabling smooth scheduling experience for 30,000+ concurrent users.",
+      "Enhanced global usability by implementing an automatic locale detection mechanism for date/time formatting, reducing customer-reported issues across multiple regions.",
+      "Strengthened product quality by developing unit and integration tests achieving 95%+ coverage, improving release confidence and reducing regression defects.",
+      "Debugged complex UI production issues using browser profiling tools and performance analysis, improving responsiveness and accessibility compliance.",
+      "Mentored junior engineers and supported onboarding, fostering collaborative team culture and engineering excellence."
     ]
   },
-  {
-    title: "Associate Software Engineer",
-    company: "Genesys",
-    period: "Jun 2023 - Feb 2024",
-    responsibilities: [
-      "Worked on implementing unit testing for entire application with a spec coverage of over 95%",
-      "Optimized application performance by implementing API request caching, reducing server load and improving response times.",
-      "Got promoted to Software engineer in 9 months"
-    ]
-  },
-  {
-    title: "Software Engineer Intern",
-    company: "Genesys",
-    period: "August 2022 - May 2023",
-    responsibilities: [
-      "Responsible for development of notification rules management UI that includes development of custom components that can handle huge data interactively.",
-      "Worked on user reported defects to improve customer experience of the product."
-    ]
-  }
 ];
 
-const technologies = ["Vue.js", "KnockoutJS", "Less", "Jest", "Webpack"];
+const technologies = [
+  "Vue.js",
+  "JavaScript",
+  "HTML5",
+  "CSS3",
+  "API Caching",
+  "Virtual Rendering",
+  "Unit/Integration Testing"
+];
+
+const impactTerms = [
+  "Software Development Lifecycle (SDLC)",
+  "30,000+ concurrent users",
+  "95%+ coverage",
+  "performance",
+  "scalable",
+  "reusable",
+  "customer-centric",
+  "code reviews",
+  "global usability",
+  "regression defects",
+  "accessibility compliance",
+  "Mentored"
+];
+
+const escapeRegExp = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+const impactRegex = new RegExp(
+  `(${impactTerms
+    .slice()
+    .sort((a, b) => b.length - a.length)
+    .map(escapeRegExp)
+    .join("|")})`,
+  "gi"
+);
+
+function highlightImpactTerms(text: string) {
+  const parts = text.split(impactRegex);
+  return parts.map((part, index) => {
+    const isImpactTerm = impactTerms.some((term) => term.toLowerCase() === part.toLowerCase());
+    if (!isImpactTerm) return <span key={index}>{part}</span>;
+
+    return (
+      <span
+        key={index}
+        className="font-semibold text-primary dark:text-blue-300"
+      >
+        {part}
+      </span>
+    );
+  });
+}
 
 export default function Experience() {
   return (
@@ -55,15 +95,15 @@ export default function Experience() {
               <div className="absolute left-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center">
                 <BriefcaseIcon size={20} />
               </div>
-              <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md border-l-4 border-primary">
+              <div className="surface-card surface-card-hover p-6 border-l-4 border-primary">
                 <div className="flex justify-between flex-wrap">
                   <h3 className="text-xl font-bold dark:text-white">{exp.title}</h3>
                   <span className="text-sm text-gray-500 dark:text-gray-300">{exp.period}</span>
                 </div>
                 <p className="text-primary font-medium mb-4">{exp.company}</p>
-                <ul className="list-disc list-inside text-gray-700 dark:text-gray-200 space-y-2">
+                <ul className="list-disc list-outside pl-6 text-gray-700 dark:text-gray-200 space-y-2 leading-relaxed">
                   {exp.responsibilities.map((responsibility, idx) => (
-                    <li key={idx}>{responsibility}</li>
+                    <li key={idx}>{highlightImpactTerms(responsibility)}</li>
                   ))}
                 </ul>
               </div>
@@ -71,7 +111,7 @@ export default function Experience() {
           ))}
           
           <motion.div 
-            className="ml-12 animate-in bg-gray-100 dark:bg-gray-600 p-5 rounded-lg shadow-sm"
+            className="ml-12 animate-in surface-card surface-card-hover p-5"
             {...fadeInUp}
           >
             <h4 className="font-semibold mb-2 dark:text-white">Technologies Used:</h4>
