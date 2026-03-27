@@ -16,6 +16,7 @@ const experiences = [
       "Enhanced global usability by implementing an automatic locale detection mechanism for date/time formatting, reducing customer-reported issues across multiple regions.",
       "Strengthened product quality by developing unit and integration tests achieving 95%+ coverage, improving release confidence and reducing regression defects.",
       "Debugged complex UI production issues using browser profiling tools and performance analysis, improving responsiveness and accessibility compliance.",
+      "Designed and implemented an automated Cursor rules optimization pipeline that ingests merged PR comments, uses AWS Bedrock for semantic analysis to detect rule gaps, and dynamically updates rules while leveraging prompt caching to handle context window constraints and minimize cost.",
       "Mentored junior engineers and supported onboarding, fostering collaborative team culture and engineering excellence."
     ]
   },
@@ -23,12 +24,16 @@ const experiences = [
 
 const technologies = [
   "Vue.js",
+  "Knockout.js",
   "JavaScript",
+  "TypeScript",
   "HTML5",
   "CSS3",
-  "API Caching",
   "Virtual Rendering",
-  "Unit/Integration Testing"
+  "Unit/Integration Testing",
+  "AWS Bedrock",
+  "AWS Lambda",
+  "Jenkins"
 ];
 
 const impactTerms = [
@@ -43,7 +48,14 @@ const impactTerms = [
   "global usability",
   "regression defects",
   "accessibility compliance",
-  "Mentored"
+  "Mentored",
+  "automated",
+  "AWS Bedrock",
+  "semantic analysis",
+  "dynamically",
+  "prompt caching",
+  "context window constraints",
+  "minimize cost"
 ];
 
 const escapeRegExp = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");

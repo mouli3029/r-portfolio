@@ -27,7 +27,7 @@ const skillCategories = [
   {
     title: "Backend & Tools",
     icon: <Server className="text-primary" />,
-    skills: ["Node.js", "Express", "Django", "Spring", "Git", "Docker", "Jenkins"]
+    skills: ["Node.js", "Express", "Django", "Spring", "Git", "Docker", "Jenkins", "AWS Bedrock"]
   },
   {
     title: "Other Skills",
