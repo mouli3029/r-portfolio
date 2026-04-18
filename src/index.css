@@ -147,4 +147,8 @@
   .chip {
     @apply inline-flex items-center gap-2 rounded-full border border-gray-200/70 dark:border-gray-700/60 bg-white/70 dark:bg-gray-800/50 px-3 py-1 text-sm text-gray-700 dark:text-gray-200 backdrop-blur;
   }
+
+  .chip-highlight {
+    @apply border-amber-300/70 dark:border-amber-600/50 bg-amber-50/80 dark:bg-amber-900/20 text-amber-800 dark:text-amber-200;
+  }
 }

@@ -17,7 +17,12 @@ export default function Education() {
               <span className="text-gray-500 dark:text-gray-300">July 2019 - June 2023</span>
             </div>
             <p className="text-primary font-medium mb-2">KL University, Guntur, India</p>
-            <p className="text-gray-700 dark:text-gray-300">CGPA: 9.02</p>
+            <p className="text-gray-700 dark:text-gray-300 font-semibold mb-3">CGPA: 9.02 / 10</p>
+            <div className="border-t border-gray-200/60 dark:border-gray-600/40 pt-3">
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                <span className="font-medium text-gray-700 dark:text-gray-300">Relevant Coursework:</span> Data Structures & Algorithms, Database Management Systems, Web Technologies, Software Engineering, Operating Systems, Computer Networks
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>

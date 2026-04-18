@@ -12,6 +12,7 @@ const skillCategories = [
       "Vue.js",
       "React.js",
       "Knockout.js",
+      "Storybook",
       "HTML5",
       "CSS3",
       "Less",
@@ -22,7 +23,7 @@ const skillCategories = [
   {
     title: "Build & Testing",
     icon: <Beaker className="text-primary" />,
-    skills: ["Jest", "Storybook", "Webpack", "Vite", "Test-Driven Development (TDD)"]
+    skills: ["Jest", "Stencil", "Webpack", "Vite", "Test-Driven Development (TDD)"]
   },
   {
     title: "Backend & Tools",

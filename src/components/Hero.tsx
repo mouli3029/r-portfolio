@@ -1,8 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { fadeInUp, slideLeft, slideRight } from "@/utils/animations";
-import { FaLinkedin, FaGithub, FaCode, FaDownload } from "react-icons/fa";
-import { Building2, MapPin, Sparkles } from "lucide-react";
+import { fadeInUp, slideLeft } from "@/utils/animations";
+import { FaLinkedin, FaGithub, FaCode, FaDownload, FaAws } from "react-icons/fa";
+import { Building2, MapPin, Sparkles, Calendar, Users, ShieldCheck, Trophy } from "lucide-react";
+
+const stats = [
+  { icon: <Calendar size={20} />, value: "3+", label: "Years Experience" },
+  { icon: <Users size={20} />, value: "30K+", label: "Agents Served" },
+  { icon: <ShieldCheck size={20} />, value: "95%+", label: "Test Coverage" },
+  { icon: <Trophy size={20} />, value: "500+", label: "Problems Solved" },
+];
 
 export default function Hero() {
   return (
@@ -28,18 +35,22 @@ export default function Hero() {
               </span>
               <span className="chip">
                 <Sparkles size={16} className="text-primary" />
-                Frontend • Performance • DX
+                Full Stack • Frontend Heavy
+              </span>
+              <span className="chip chip-highlight">
+                <FaAws size={16} className="text-amber-600 dark:text-amber-400" />
+                AWS Certified Solution Architect
               </span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 dark:text-white">
+            <h1 className="text-4xl md:text-5xl font-bold mb-2 dark:text-white">
               Hello, I'm <span className="text-primary">Venkata Mouli</span>
             </h1>
             <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
-              Software Engineer
+              Software Engineer · 3+ Years
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-              I build modern web applications with a focus on clean code, performance, and user experience — and I enjoy delivering scalable UI for enterprise customers.
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl">
+              Full stack engineer with a frontend-heavy focus, specializing in enterprise-grade scheduling & workforce management applications at Genesys. I build performant frontend UIs using Vue.js and React, handling 30,000+ agent schedules, develop CRUD APIs with Node.js, and leverage cloud services on AWS — all with 95%+ test coverage.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -48,36 +59,36 @@ export default function Hero() {
               </Button>
               <Button size="lg" variant="outline" className="flex items-center gap-2" asChild>
                 <a
-                  href={`${import.meta.env.BASE_URL}Kundula_Venkata_Mouli_resume.pdf`}
-                  download="Kundula_Venkata_Mouli_resume.pdf"
+                  href={`${import.meta.env.BASE_URL}Kundula_Mouli_new.pdf`}
+                  download="Kundula_Mouli_resume.pdf"
                 >
                   Download Resume <FaDownload />
                 </a>
               </Button>
             </div>
             <div className="mt-8 flex space-x-6">
-              <a 
-                href="https://linkedin.com/in/venkata-mouli/" 
-                target="_blank" 
-                rel="noreferrer" 
+              <a
+                href="https://linkedin.com/in/venkata-mouli/"
+                target="_blank"
+                rel="noreferrer"
                 className="text-2xl text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
                 aria-label="LinkedIn Profile"
               >
                 <FaLinkedin />
               </a>
-              <a 
-                href="https://github.com/venkata-mouli" 
-                target="_blank" 
-                rel="noreferrer" 
+              <a
+                href="https://github.com/venkata-mouli"
+                target="_blank"
+                rel="noreferrer"
                 className="text-2xl text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
                 aria-label="GitHub Profile"
               >
                 <FaGithub />
               </a>
-              <a 
-                href="https://leetcode.com/u/mouli_2303/" 
-                target="_blank" 
-                rel="noreferrer" 
+              <a
+                href="https://leetcode.com/u/mouli_2303/"
+                target="_blank"
+                rel="noreferrer"
                 className="text-2xl text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
                 aria-label="LeetCode Profile"
               >
@@ -85,7 +96,7 @@ export default function Hero() {
               </a>
             </div>
           </motion.div>
-          <motion.div 
+          <motion.div
             className="hidden lg:block"
             {...slideLeft}
           >
@@ -114,6 +125,29 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
+
+        {/* Stats Strip */}
+        <motion.div
+          className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto lg:mx-0"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+        >
+          {stats.map((stat, index) => (
+            <div
+              key={index}
+              className="stat-card flex items-center gap-3 p-4 rounded-xl bg-white/80 dark:bg-gray-800/60 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/50 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div className="w-10 h-10 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary flex-shrink-0">
+                {stat.icon}
+              </div>
+              <div>
+                <div className="text-xl font-bold text-gray-900 dark:text-white">{stat.value}</div>
+                <div className="text-xs text-gray-500 dark:text-gray-400 leading-tight">{stat.label}</div>
+              </div>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

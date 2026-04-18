@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { fadeInUp, slideLeft, slideRight } from "@/utils/animations";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
 import { FaLinkedin, FaPaperPlane } from "react-icons/fa";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -36,13 +36,13 @@ export default function Contact() {
     setIsSubmitting(true);
     
     try {
-      // Simulated form submission (no actual API endpoint)
-      // In a real app, you'd send this data to a backend endpoint
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Construct mailto link as fallback
+      const mailtoLink = `mailto:venkatmouli823@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Hi, I'm ${formData.name} (${formData.email}).\n\n${formData.message}`)}`;
+      window.open(mailtoLink, '_blank');
       
       toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon!",
+        title: "Opening your email client!",
+        description: "Your email app should open with the message pre-filled.",
       });
       
       // Reset form
@@ -55,7 +55,7 @@ export default function Contact() {
     } catch (error) {
       toast({
         title: "Error",
-        description: "There was an error sending your message. Please try again.",
+        description: "There was an error. Please email me directly at venkatmouli823@gmail.com",
         variant: "destructive"
       });
     } finally {
@@ -75,11 +75,29 @@ export default function Contact() {
             {...slideRight}
           >
             <h3 className="text-2xl font-bold mb-6">Get In Touch</h3>
-            <p className="mb-8">
-              Feel free to reach out to me for any opportunities, questions, or just to say hello!
+            <p className="mb-8 text-gray-300">
+              I'm open to new opportunities, collaborations, and conversations. The fastest way to reach me is via email or LinkedIn.
             </p>
             
-            <div className="space-y-6">
+            {/* Quick action buttons */}
+            <div className="flex flex-wrap gap-3 mb-8">
+              <a 
+                href="mailto:venkatmouli823@gmail.com" 
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-white font-medium hover:bg-primary/90 transition-colors"
+              >
+                <Mail size={18} /> Email Me Directly
+              </a>
+              <a 
+                href="https://linkedin.com/in/venkata-mouli/" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#0A66C2] text-white font-medium hover:bg-[#0A66C2]/90 transition-colors"
+              >
+                <FaLinkedin size={18} /> Connect on LinkedIn
+              </a>
+            </div>
+
+            <div className="space-y-5">
               <div className="flex items-start">
                 <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-4 mt-1">
                   <Mail className="text-primary" size={20} />
@@ -111,23 +129,6 @@ export default function Contact() {
                 <div>
                   <h4 className="font-semibold text-lg">Location</h4>
                   <p>Rajahmundry, Andhra Pradesh, India</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-4 mt-1">
-                  <FaLinkedin className="text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-lg">LinkedIn</h4>
-                  <a 
-                    href="https://linkedin.com/in/venkata-mouli/" 
-                    target="_blank" 
-                    rel="noreferrer" 
-                    className="text-blue-300 hover:underline"
-                  >
-                    linkedin.com/in/venkata-mouli/
-                  </a>
                 </div>
               </div>
             </div>
@@ -199,12 +200,15 @@ export default function Contact() {
                   className="w-full" 
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Sending..." : (
+                  {isSubmitting ? "Opening..." : (
                     <>
                       Send Message <FaPaperPlane className="ml-2" />
                     </>
                   )}
                 </Button>
+                <p className="text-xs text-center text-gray-400 dark:text-gray-500">
+                  This will open your default email client with the message pre-filled.
+                </p>
               </div>
             </form>
           </motion.div>
